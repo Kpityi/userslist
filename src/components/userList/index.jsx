@@ -1,8 +1,15 @@
 import "./index.scss";
 import classNames from "classnames";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-const UsersList = ({ data, count }) => {
+
+const UsersList = ({ data, page }) => {
+  const [count, setCount] = useState(-1);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setCount(count + 1);
+  }, [page]);
   return (
     <>
       <div className="users-list__table-container">
